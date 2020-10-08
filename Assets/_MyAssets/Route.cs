@@ -12,5 +12,6 @@ public class Route : MonoBehaviour //SO?
     {
         public string locationString;
         public string infoText; //TODO array
+        public GameObject gObject;
     }
 }

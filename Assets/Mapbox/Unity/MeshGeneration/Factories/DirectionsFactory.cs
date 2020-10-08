@@ -22,7 +22,7 @@ namespace Mapbox.Unity.MeshGeneration.Factories
 		Material _material;
 
 		[SerializeField]
-		Transform[] _waypoints;
+		public Transform[] waypoints;
 		private List<Vector3> _cachedWaypoints;
 
 		[SerializeField]
@@ -50,8 +50,8 @@ namespace Mapbox.Unity.MeshGeneration.Factories
 
 		public void Start()
 		{
-			_cachedWaypoints = new List<Vector3>(_waypoints.Length);
-			foreach (var item in _waypoints)
+			_cachedWaypoints = new List<Vector3>(waypoints.Length);
+			foreach (var item in waypoints)
 			{
 				_cachedWaypoints.Add(item.position);
 			}
@@ -73,11 +73,11 @@ namespace Mapbox.Unity.MeshGeneration.Factories
 
 		void Query()
 		{
-			var count = _waypoints.Length;
+			var count = waypoints.Length;
 			var wp = new Vector2d[count];
 			for (int i = 0; i < count; i++)
 			{
-				wp[i] = _waypoints[i].GetGeoPosition(_map.CenterMercator, _map.WorldRelativeScale);
+				wp[i] = waypoints[i].GetGeoPosition(_map.CenterMercator, _map.WorldRelativeScale);
 			}
 			var _directionResource = new DirectionResource(wp, RoutingProfile.Driving);
 			_directionResource.Steps = true;
@@ -89,12 +89,12 @@ namespace Mapbox.Unity.MeshGeneration.Factories
 			while (true)
 			{
 				yield return new WaitForSeconds(UpdateFrequency);
-				for (int i = 0; i < _waypoints.Length; i++)
+				for (int i = 0; i < waypoints.Length; i++)
 				{
-					if (_waypoints[i].position != _cachedWaypoints[i])
+					if (waypoints[i].position != _cachedWaypoints[i])
 					{
 						_recalculateNext = true;
-						_cachedWaypoints[i] = _waypoints[i].position;
+						_cachedWaypoints[i] = waypoints[i].position;
 					}
 				}
 
