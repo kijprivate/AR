@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class CanvasUI : MonoBehaviour
 {
     [SerializeField] GameObject nextPointButton;
+    [SerializeField] GameObject toggleInfoButton;
 
     #region Singleton
     private static CanvasUI instance;
@@ -25,16 +26,16 @@ public class CanvasUI : MonoBehaviour
     private void Awake()
     {
         nextPointButton.GetComponent<Button>().onClick.AddListener(RouteManager.Instance.SetNextPoint);
-        nextPointButton.GetComponent<Button>().onClick.AddListener(HideNextPointButton);
+        //nextPointButton.GetComponent<Button>().onClick.AddListener(HideNextPointButton);
     }
 
-    public void ShowNextPointButton()
+    public void ToggleNextPointButton(bool enable)
     {
-        nextPointButton.SetActive(true);
+        nextPointButton.SetActive(enable);
     }
     
-    public void HideNextPointButton()
+    public void ToggleInfoButton(bool enable, RoutePointData data)
     {
-        nextPointButton.SetActive(false);
+        toggleInfoButton.SetActive(enable);
     }
 }
