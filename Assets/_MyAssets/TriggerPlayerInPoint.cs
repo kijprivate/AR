@@ -7,7 +7,7 @@ public class TriggerPlayerInPoint : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         var rp = other.gameObject.GetComponent<RoutePointData>();
-        if(rp)
+        if(rp && RouteManager.Instance.CurrentPoint.gObject == other.gameObject)
         {
             CanvasUI.Instance.ToggleNextPointButton(true);
             CanvasUI.Instance.ToggleInfoButton(true, rp);
@@ -19,7 +19,6 @@ public class TriggerPlayerInPoint : MonoBehaviour
         var rp = other.gameObject.GetComponent<RoutePointData>();
         if (rp)
         {
-            CanvasUI.Instance.ToggleNextPointButton(false);
             CanvasUI.Instance.ToggleInfoButton(false, rp);
         }
     }

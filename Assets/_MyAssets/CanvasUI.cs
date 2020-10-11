@@ -7,6 +7,11 @@ public class CanvasUI : MonoBehaviour
 {
     [SerializeField] GameObject nextPointButton;
     [SerializeField] GameObject toggleInfoButton;
+    [SerializeField] GameObject infoPanel;
+    [SerializeField] Text infoText;
+
+    private RoutePointData currentData;
+    private int currentInfoIndex;
 
     #region Singleton
     private static CanvasUI instance;
@@ -26,7 +31,7 @@ public class CanvasUI : MonoBehaviour
     private void Awake()
     {
         nextPointButton.GetComponent<Button>().onClick.AddListener(RouteManager.Instance.SetNextPoint);
-        //nextPointButton.GetComponent<Button>().onClick.AddListener(HideNextPointButton);
+        nextPointButton.GetComponent<Button>().onClick.AddListener(HideInfos);
     }
 
     public void ToggleNextPointButton(bool enable)
@@ -37,5 +42,23 @@ public class CanvasUI : MonoBehaviour
     public void ToggleInfoButton(bool enable, RoutePointData data)
     {
         toggleInfoButton.SetActive(enable);
+        currentData = data;
+        currentInfoIndex = 0;
+        infoText.text = currentData.infoText[currentInfoIndex];
+    }
+
+    public void NextInfo()
+    {
+        if (currentInfoIndex + 1 < currentData.infoText.Length)
+        {
+            currentInfoIndex++;
+            infoText.text = currentData.infoText[currentInfoIndex];
+        }
+    }
+
+    private void HideInfos()
+    {
+        toggleInfoButton.SetActive(false);
+        infoPanel.SetActive(false);
     }
 }

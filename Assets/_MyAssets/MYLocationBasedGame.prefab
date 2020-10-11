@@ -766,11 +766,7 @@ MonoBehaviour:
   _updateInterval: 1
   _sendEvent: 0
   _latitudeLongitude:
-  - 48.859489, 2.32000
-  - 48.859489, 2.32015
-  - 48.859489, 2.32030
-  - 48.859489, 2.32045
-  - 48.859489, 2.32060
+  - 60.192,24.9685822
   _heading: 112
 --- !u!1 &1794436748899412
 GameObject:
@@ -924,7 +920,7 @@ MonoBehaviour:
   mapManager: {fileID: 114105500206378512}
   _deviceLocationProviderUnity: {fileID: 114811608996724456}
   _deviceLocationProviderAndroid: {fileID: 114352101756843672}
-  _editorLocationProvider: {fileID: 114275890671072080}
+  _editorLocationProvider: {fileID: 114658503893516242}
   _transformLocationProvider: {fileID: 114011132729224596}
   _dontDestroyOnLoad: 0
 --- !u!1 &1955583132415804

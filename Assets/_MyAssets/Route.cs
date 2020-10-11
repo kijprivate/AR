@@ -11,7 +11,7 @@ public class Route : MonoBehaviour //SO?
     public class RoutePoint
     {
         public string locationString;
-        public string infoText; //TODO array
+        public string[] infoText; 
         public GameObject gObject;
     }
 }

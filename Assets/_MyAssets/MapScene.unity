@@ -580,19 +580,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   routePoints:
   - locationString: 60.192,24.9685822
-    infoText: p1
+    infoText:
+    - tekst 1
+    - tekst 2
     gObject: {fileID: 0}
   - locationString: 60.1923,24.967
-    infoText: p2
+    infoText:
+    - 
+    - 
     gObject: {fileID: 0}
   - locationString: 60.1915,24.9668
-    infoText: p3
+    infoText:
+    - 
+    - 
     gObject: {fileID: 0}
   - locationString: 60.1905,24.966
-    infoText: p4
+    infoText:
+    - 
+    - 
     gObject: {fileID: 0}
   - locationString: 60.1904,24.9668
-    infoText: p5
+    infoText:
+    - 
+    - 
     gObject: {fileID: 0}
 --- !u!4 &2021647054
 Transform:

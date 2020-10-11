@@ -274,7 +274,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8654940298614393224}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8654940300346752254}
+        m_MethodName: NextInfo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8654940298665571154
 GameObject:
   m_ObjectHideFlags: 0
@@ -1264,6 +1275,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextPointButton: {fileID: 8654940300370564868}
   toggleInfoButton: {fileID: 8654940300020921801}
+  infoPanel: {fileID: 8654940299581869189}
+  infoText: {fileID: 8654940299048059681}
 --- !u!1 &8654940300370564868
 GameObject:
   m_ObjectHideFlags: 0

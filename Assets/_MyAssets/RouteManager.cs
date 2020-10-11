@@ -14,8 +14,14 @@ public class RouteManager : MonoBehaviour
 
     [SerializeField] private GameObject pointPrefab; // TODO specific for point?
 
+    private Route.RoutePoint currentPoint;
+    public Route.RoutePoint CurrentPoint
+    {
+        get => currentPoint;
+    }
+
     int currentPointIndex;
-    Route.RoutePoint currentPoint;
+    
     List<GameObject> spawnedObjects = new List<GameObject>();
     Vector2d[] locations;
 
@@ -54,6 +60,7 @@ public class RouteManager : MonoBehaviour
     public void SetNextPoint()
     {
         currentPointIndex++;
+        currentPoint = route.routePoints[currentPointIndex];
         directionsFactory.waypoints[1] = route.routePoints[currentPointIndex].gObject.transform;
     }
 
@@ -78,6 +85,8 @@ public class RouteManager : MonoBehaviour
             var obj = Instantiate(pointPrefab);
             obj.transform.localPosition = map.GeoToWorldPosition(locations[i], true);
             route.routePoints[i].gObject = obj;
+            var data = obj.GetComponent<RoutePointData>();
+            data.infoText = route.routePoints[i].infoText;
             spawnedObjects.Add(obj);
         }
     }
